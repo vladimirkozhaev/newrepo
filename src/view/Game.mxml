@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" xmlns:mx="mx.containers.*"
+         width="840" height="640" enterFrame="">
+
+
+    <fx:Script><![CDATA[
+        import model.GameModel;
+        import model.RectangleModel;
+
+
+        private var _gameModel:GameModel;
+        private var _rectangleComponents:Array = new Array();
+
+        [Bindable]
+        public function get gameModel():GameModel {
+            return _gameModel;
+        }
+
+        public function set gameModel(value:GameModel):void {
+
+            _gameModel = value;
+            makeRectangleModels();
+            this.addEventListener(Event.ENTER_FRAME, enterFrameHandler);
+        }
+
+        private function enterFrameHandler(e:Event):void {
+            this.removeEventListener(Event.ENTER_FRAME, enterFrameHandler);
+            gameCanvas.removeAllChildren();
+            addMethodToCanvas();
+        }
+
+        private function makeRectangleModels():void {
+            _rectangleComponents = new Array();
+            for each (var rectangleModel:* in _gameModel.rectangles) {
+
+                if ((rectangleModel as RectangleModel) != null) {
+                    var rectangleComponent:RectangleComponent = new RectangleComponent();
+                    rectangleComponent.model = rectangleModel;
+                    _rectangleComponents.push(rectangleComponent);
+                }
+            }
+        }
+
+        private function addMethodToCanvas():void {
+            for each (var rectangleComponent:RectangleComponent in _rectangleComponents) {
+                gameCanvas.addChild(rectangleComponent);
+            }
+        }
+        ]]></fx:Script>
+
+    <mx:Canvas width="830" height="630" id="gameCanvas" backgroundColor="0xffffff">
+
+    </mx:Canvas>
+</s:Group>

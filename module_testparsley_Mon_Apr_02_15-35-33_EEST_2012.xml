@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_testparsley" default="compile.module.testparsley">
+  <dirname property="module.testparsley.basedir" file="${ant.file.module_testparsley}"/>
+  
+  <property name="module.jdk.home.testparsley" value="${jdk.home.4.6.0}"/>
+  <property name="module.jdk.bin.testparsley" value="${jdk.bin.4.6.0}"/>
+  <property name="module.jdk.classpath.testparsley" value="jdk.classpath.4.6.0"/>
+  
+  <property name="compiler.args.testparsley" value="${compiler.args}"/>
+  
+  <property name="testparsley.output.dir" value="${module.testparsley.basedir}/out/production/testparsley"/>
+  <property name="testparsley.testoutput.dir" value="${module.testparsley.basedir}/out/test/testparsley"/>
+  
+  <path id="testparsley.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="testparsley.module.production.classpath">
+    <path refid="${module.jdk.classpath.testparsley}"/>
+    <path refid="library.libs.classpath"/>
+  </path>
+  
+  <path id="testparsley.runtime.production.module.classpath">
+    <pathelement location="${testparsley.output.dir}"/>
+    <path refid="library.libs.classpath"/>
+  </path>
+  
+  <path id="testparsley.module.classpath">
+    <path refid="${module.jdk.classpath.testparsley}"/>
+    <pathelement location="${testparsley.output.dir}"/>
+    <path refid="library.libs.classpath"/>
+  </path>
+  
+  <path id="testparsley.runtime.module.classpath">
+    <pathelement location="${testparsley.testoutput.dir}"/>
+    <pathelement location="${testparsley.output.dir}"/>
+    <path refid="library.libs.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.testparsley">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.testparsley">
+    <patternset refid="excluded.from.module.testparsley"/>
+  </patternset>
+  
+  <path id="testparsley.module.sourcepath">
+    <dirset dir="${module.testparsley.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.testparsley" depends="compile.module.testparsley.production,compile.module.testparsley.tests" description="Compile module testparsley"/>
+  
+  <target name="compile.module.testparsley.production" depends="register.custom.compilers" description="Compile module testparsley; production classes">
+    <mkdir dir="${testparsley.output.dir}"/>
+    <javac2 destdir="${testparsley.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.testparsley}/javac">
+      <compilerarg line="${compiler.args.testparsley}"/>
+      <bootclasspath refid="testparsley.module.bootclasspath"/>
+      <classpath refid="testparsley.module.production.classpath"/>
+      <src refid="testparsley.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.testparsley"/>
+    </javac2>
+    
+    <copy todir="${testparsley.output.dir}">
+      <fileset dir="${module.testparsley.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.testparsley.tests" depends="register.custom.compilers,compile.module.testparsley.production" description="compile module testparsley; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.testparsley" description="cleanup module">
+    <delete dir="${testparsley.output.dir}"/>
+    <delete dir="${testparsley.testoutput.dir}"/>
+  </target>
+</project>

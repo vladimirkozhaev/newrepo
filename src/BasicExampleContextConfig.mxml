@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This is the file that declares which objects you wish to manage through Parsley.
+Any object declared within the Object Tag will be allowed to participate in any of Parsley's
+features.  This is a Simple MXML implementation, but this can also be declared in and XML file.
+-->
+
+<fx:Object
+        xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:parsley="http://www.spicefactory.org/parsley">
+
+    <fx:Declarations>
+        <!--
+        Withing the object tags you declare de objects.  In this case I'm just
+        including the BasicModel class
+        -->
+
+
+        <parsley:Object type="{RectangleModel}" id="downModel1">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>160</fx:int>
+                <fx:int>800</fx:int>
+                <fx:int>140</fx:int>
+                <fx:uint>0xfac831</fx:uint>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+        <parsley:Object type="{RectangleModel}" id="leftModel1">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>0</fx:int>
+                <fx:int>60</fx:int>
+                <fx:int>160</fx:int>
+                <fx:uint>0x286bcc</fx:uint>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+        <parsley:Object type="{RectangleModel}" id="rightModel1">
+            <parsley:ConstructorArgs>
+                <fx:int>760</fx:int>
+                <fx:int>0</fx:int>
+                <fx:int>40</fx:int>
+                <fx:int>160</fx:int>
+                <fx:uint>0xff8410</fx:uint>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+
+        <parsley:Object type="{RectangleModel}" id="rightDownModel1">
+            <parsley:ConstructorArgs>
+                <fx:int>700</fx:int>
+                <fx:int>200</fx:int>
+                <fx:int>100</fx:int>
+                <fx:int>60</fx:int>
+                <fx:uint>0xe33933</fx:uint>
+                <fx:int>2</fx:int>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+        <parsley:Object type="{RectangleModel}" id="upModel2">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>0</fx:int>
+                <fx:int>800</fx:int>
+                <fx:int>80</fx:int>
+                <fx:uint>0xf8b5cc</fx:uint>
+
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+
+        <parsley:Object type="{RectangleModel}" id="leftModel2">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>80</fx:int>
+                <fx:int>60</fx:int>
+                <fx:int>225</fx:int>
+                <fx:uint>0x286bcc</fx:uint>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+
+        <parsley:Object type="{RectangleModel}" id="upModel3">
+            <parsley:ConstructorArgs>
+                <fx:int>60</fx:int>
+                <fx:int>0</fx:int>
+                <fx:int>740</fx:int>
+                <fx:int>80</fx:int>
+                <fx:uint>0xf8b5cc</fx:uint>
+
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+
+        <parsley:Object type="{RectangleModel}" id="leftModel3">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>0</fx:int>
+                <fx:int>60</fx:int>
+                <fx:int>305</fx:int>
+                <fx:uint>0x97d077</fx:uint>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+
+        <parsley:Object type="{RectangleModel}" id="upModel4">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>0</fx:int>
+                <fx:int>800</fx:int>
+                <fx:int>70</fx:int>
+                <fx:uint>0xf8b5cc</fx:uint>
+
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+
+        <parsley:Object type="{RectangleModel}" id="downModel4">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>230</fx:int>
+                <fx:int>800</fx:int>
+                <fx:int>70</fx:int>
+                <fx:uint>0xfac831</fx:uint>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+        <parsley:Object type="{RectangleModel}" id="leftModel4">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>0</fx:int>
+                <fx:int>60</fx:int>
+                <fx:int>160</fx:int>
+                <fx:uint>0x286bcc</fx:uint>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+        <parsley:Object type="{RectangleModel}" id="leftDownModel4">
+            <parsley:ConstructorArgs>
+                <fx:int>0</fx:int>
+                <fx:int>250</fx:int>
+                <fx:int>100</fx:int>
+                <fx:int>30</fx:int>
+                <fx:uint>0xe33933</fx:uint>
+                <fx:int>2</fx:int>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+        <parsley:Object type="{RectangleModel}" id="rightDownModel4">
+            <parsley:ConstructorArgs>
+                <fx:int>700</fx:int>
+                <fx:int>250</fx:int>
+                <fx:int>100</fx:int>
+                <fx:int>30</fx:int>
+                <fx:uint>0xefefefe</fx:uint>
+                <fx:int>2</fx:int>
+            </parsley:ConstructorArgs>
+        </parsley:Object>
+
+
+        <parsley:Object type="{GameModel}" id="gameModel1">
+            <parsley:Property name="rectangles">
+                <parsley:Array>
+                   <parsley:ObjectRef idRef="downModel1"/>;
+                   <parsley:ObjectRef idRef="leftModel1"/>;
+                   <parsley:ObjectRef idRef="rightModel1"/>;
+                   <parsley:ObjectRef idRef="rightDownModel1"/>;
+                </parsley:Array>
+            </parsley:Property>
+        </parsley:Object>
+        <parsley:Object type="{GameModel}" id="gameModel2">
+            <parsley:Property name="rectangles">
+                <parsley:Array>
+                    <parsley:ObjectRef idRef="upModel2"/>;
+                    <parsley:ObjectRef idRef="leftModel2"/>;
+                </parsley:Array>
+
+            </parsley:Property>
+        </parsley:Object>
+
+        <parsley:Object type="{GameModel}" id="gameModel3">
+            <parsley:Property name="rectangles">
+                <parsley:Array>
+                    <parsley:ObjectRef idRef="upModel3"/>;
+                    <parsley:ObjectRef idRef="leftModel3"/>;
+                </parsley:Array>
+
+            </parsley:Property>
+        </parsley:Object>
+
+        <parsley:Object type="{GameModel}" id="gameModel4">
+            <parsley:Property name="rectangles">
+                <parsley:Array>
+                    <parsley:ObjectRef idRef="upModel4"/>;
+                    <parsley:ObjectRef idRef="downModel4"/>;
+                    <parsley:ObjectRef idRef="leftDownModel4"/>;
+                    <parsley:ObjectRef idRef="rightDownModel4"/>;
+                </parsley:Array>
+
+            </parsley:Property>
+        </parsley:Object>
+
+
+    </fx:Declarations>
+    <fx:Script><![CDATA[
+        import model.GameModel;
+        import model.RectangleModel;
+        ]]></fx:Script>
+</fx:Object>
